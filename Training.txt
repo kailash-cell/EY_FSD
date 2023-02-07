@@ -1,0 +1,813 @@
+ Assignments     https://drive.google.com/drive/folders/1LMvb6Yb0aA5yPzjdSgQpb4LHJGgjhs_l?usp=share_link
+Core Java       https://drive.google.com/file/d/1kI03IaaQZGE4khqy8--gFovqVnRC5FGJ/view?usp=share_link
+notes           https://drive.google.com/drive/folders/1mJW69Kxeix_UsiLQXY1a3X5_AD673nVG?usp=share_link
+Assignment 1: (function overloading)
+
+Note **: create function name as "calculate"
+
+create three functions in a class
+
+1) create method of return type int
+   - add two numbers
+
+2) one of return type int
+  to calculate the area of the circle
+
+3) one of return type int 
+   area of the rectangle
+
+3) one of return type int 
+   area of the square
+
+-------------------------------------------------------------------------------------------
+package ey_training;
+
+public class Overloading {
+	public int calculate(int a, int b) {
+		return a+b;
+	}
+	public int calculate (float a) {
+		return (int)(3.14*a*a);
+	}
+	public int calculate(float a ,float b) {
+		return (int)(a*b);
+	}
+	public int calculate (int a) {
+		return a*a;
+	}
+	public static void main(String[] args) {
+		Overloading obj=new Overloading();
+		System.out.println("Areaof square "+ obj.calculate(15));
+		System.out.println("Addition of 2 numbers is "+obj.calculate(10, 12));
+		System.out.println("Area of rectangle is "+obj.calculate(12.4f, 14.23f));
+		System.out.println("Area of circle is "+obj.calculate(10.23f));
+
+	}
+
+}
+
+output:
+Areaof square 225
+Addition of 2 numbers is 22
+Area of rectangle is 176
+Area of circle is 328
+
+------------------------------------------------------------------------------------------package ey_training;
+//assignment-3
+public class Student {
+	String name;
+	int age;
+	char section;
+	char gender;
+	int sub1_marks,sub2_marks,sub3_marks;
+	
+	
+	
+
+	public Student(String name, int age, char section, char gender, int sub1_marks, int sub2_marks, int sub3_marks) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.section = section;
+		this.gender = gender;
+		this.sub1_marks = sub1_marks;
+		this.sub2_marks = sub2_marks;
+		this.sub3_marks = sub3_marks;
+	}
+
+
+
+
+	public Student(String name, int age, char section, char gender, int sub2_marks, int sub3_marks) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.section = section;
+		this.gender = gender;
+		this.sub2_marks = sub2_marks;
+		this.sub3_marks = sub3_marks;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", age=" + age + ", section=" + section + ", gender=" + gender
+				+ ", sub1_marks=" + sub1_marks + ", sub2_marks=" + sub2_marks + ", sub3_marks=" + sub3_marks + "]";
+	}
+
+
+
+
+	public int totalMarks(int a,int b,int c) {
+		return a+b+c;
+	}
+	
+	public float percentge(int a ,int b,int c) {
+		return ((a+b+c)*100)/300;
+	}
+
+
+
+
+	public static void main(String[] args) {
+	Student s1=new Student("kailash",23,'A','M',69,79,89);
+	Student s2=new Student("Anil",22,'A','M',77,88);
+	Student s3=new Student("Abhilash",22,'B','M',76,87);
+	Student s4=new Student("Manish",22,'C','M',80,56,76);
+	s2.sub1_marks=0;
+	s3.sub1_marks=0;
+	System.out.println("student Kailash's marks "+s1.totalMarks(s1.sub1_marks, s1.sub2_marks, s1.sub3_marks)+
+		" and percentage is "+s1.percentge(s1.sub1_marks, s1.sub2_marks, s1.sub3_marks));
+	System.out.println(s1.toString());
+	System.out.println("student anil's marks "+s2.totalMarks(s2.sub1_marks, s2.sub2_marks, s2.sub3_marks)+
+		"and percentage is "+s2.percentge(s2.sub1_marks, s2.sub2_marks, s2.sub3_marks));	
+	System.out.println(s2.toString());
+    	System.out.println("student Abhilas's marks "+ s3.totalMarks(s3.sub1_marks, s3.sub2_marks, s3.sub3_marks)+
+    		" and percentage is "+s3.percentge(s3.sub1_marks, s3.sub2_marks, s3.sub3_marks));
+    	System.out.println(s3.toString());
+    	System.out.println("student Manish's marks "+s4.totalMarks(s4.sub1_marks, s4.sub2_marks, s4.sub3_marks)+
+    		" and percentage is "+s4.percentge(s4.sub1_marks, s4.sub2_marks, s4.sub3_marks));
+    	System.out.println(s4.toString());
+	}
+	
+}
+
+
+student Kailash's marks 237 and percentage is 79.0
+Student [name=kailash, age=23, section=A, gender=M, sub1_marks=69, sub2_marks=79, sub3_marks=89]
+student anil's marks 165and percentage is 55.0
+Student [name=Anil, age=22, section=A, gender=M, sub1_marks=0, sub2_marks=77, sub3_marks=88]
+student Abhilas's marks 163 and percentage is 54.0
+Student [name=Abhilash, age=22, section=B, gender=M, sub1_marks=0, sub2_marks=76, sub3_marks=87]
+student Manish's marks 212 and percentage is 70.0
+Student [name=Manish, age=22, section=C, gender=M, sub1_marks=80, sub2_marks=56, sub3_marks=76]
+
+-----------------------------------------------------------------------------------------
+
+package ey_training;
+
+public class Strings {
+
+	public static void main(String[] args) {
+		StringBuffer s= new StringBuffer("started java");
+		s.append("phase1");
+		System.out.println(s);
+		s.delete(2, 5);
+		System.out.println(s);
+		s.replace(5, 9, "python");
+		System.out.println(s);
+		s.insert(4, "bro language");
+		System.out.println(s);
+		s.reverse();
+		System.out.println(s);
+		System.out.println("character at 9 is "+s.charAt(9));
+
+	}
+
+}
+
+started javaphase1
+sted javaphase1
+sted pythonphase1
+stedbro language pythonphase1
+1esahpnohtyp egaugnal orbdets
+character at 9 is t
+----------------------------------------------------------------------------------------
+
+package ey_training;
+// single inheritance
+public class Parent {
+	private int a=15;
+	protected long b=12356l;
+	
+	public int getA() {
+		return a;
+	}
+	public void setA(int a) {
+		this.a = a;
+	}
+	
+	void display() {
+		System.out.println("this is parent");
+	}
+	
+
+}
+
+
+package ey_training;
+//single inheritance
+public class Child extends Parent  {
+
+	public static void main(String[] args) {
+		Child child = new Child();
+		child.setA(123);
+		System.out.println(child.getA());
+		System.out.println(child.b);	
+		child.display();
+		
+	}
+
+}
+
+
+output
+
+123
+12356
+this is parent
+
+----------------------------------------------------------------------------------
+inheritance assignment
+
+package ey_training;
+
+public class Product {
+	int id=98;
+	String name="Amul";
+	void display() {
+		System.out.println(id +" "+name);
+	}
+
+	public static void main(String[]args) {
+	Product	product=new Product();
+	product.display();
+	
+	A aa=new A();
+	aa.display();
+	
+	SubA a=new SubA();
+	a.display();
+	
+	B bb=new B();
+	bb.display();
+		
+	SubB b=new SubB();
+	b.display();
+	
+		
+		
+	}
+}
+
+class A extends Product{
+	 int  count=50;
+	 String category="Butter";
+	 
+	 void display()
+	 {
+		 System.out.println(count+" "+category);
+	 }
+}
+ class SubA extends A{
+	 int price =30;
+	 int totalPrice(int price,int count) {
+		 return price*count;
+	 
+	 }
+	 int totalprice=totalPrice(price,count);
+	 void display() {
+		 System.out.println(id+ " "+category+" "+" "+totalprice);
+	 }
+		
+	 }
+ class B extends Product{
+	 int  count=90;
+	 String category="Milk";
+	 
+	 void display()
+	 {
+		 System.out.println(count+" "+category);
+	 }
+}
+ class SubB extends B{
+	 int price =10;
+	 int totalPrice(int price,int count) {
+		 return price*count;
+	 
+	 }
+	 int totalprice=totalPrice(price,count);
+	 void display() {
+		 System.out.println(id+ " "+category+" "+" "+totalprice);
+	 }
+		
+	 }
+ 
+
+output
+98 Amul
+50 Butter
+98 Butter  1500
+90 Milk
+98 Milk  900
+-------------------------------------------------------------------------------------------------
+
+Complete_OOPS_Assignment
+
+package ey_training;
+
+ abstract class Vehicle{
+	 
+	 int speed=60;
+	 long distance=1000l;
+	 
+	 
+	 
+	public Vehicle() {
+		super();
+	}
+	
+	
+	public Vehicle(int speed, long distance) {
+		super();
+		this.speed = speed;
+		this.distance = distance;
+	}
+
+
+	abstract public void run();
+	abstract public void stop();
+	
+	public void fuel(int a) {
+		System.out.println("general petrol tank capacity "+a);
+		
+	}
+	
+	public void fuel(float a,String s) {
+		System.out.println("next fuel station is "+s+a+" miles away");
+		
+	}
+	
+	public void fuel (char a,int b) {
+		System.out.println("token ID is "+a+" fuel needed to be filled is "+b);
+		
+	}
+	
+	
+	}
+ 
+ 	class TWO_W extends Vehicle {
+ 		
+ 		int speed=70;
+ 		long distance=1235l;
+ 		int No_Of_Wheels=2;
+ 		
+ 		void display() {
+ 			System.out.println("TWO_W "+this.speed +" "+this.distance+" "+this.No_Of_Wheels);
+ 			System.out.println(super.speed);
+ 			System.out.println(super.distance);
+ 		}
+ 		
+ 		
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			System.out.println("Two wheeler is running");
+			
+		}
+
+		@Override
+		public void stop() {
+			// TODO Auto-generated method stub
+			System.out.println("Two wheeler is stopped");
+			
+		}
+ 		
+ 	}
+ 	
+class THREE_W extends Vehicle {
+ 		
+ 		int speed=50;
+ 		long distance=123l;
+ 		int No_Of_Wheels=3;
+ 		
+ 		void display() {
+ 			System.out.println("THREE_W "+this.speed +" "+this.distance+" "+this.No_Of_Wheels);
+ 			System.out.println("parent class variable"+super.speed);
+ 			System.out.println("parent class variable"+super.distance);
+ 		}
+ 		
+ 		
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			System.out.println("Three wheeler is running");
+			
+		}
+
+		@Override
+		public void stop() {
+			// TODO Auto-generated method stu
+			System.out.println("Three wheeler is stopped");
+			
+		}
+ 		
+ 	}
+
+class FOUR_W extends Vehicle {
+		
+		int speed=100;
+		long distance=2000l;
+		int No_Of_Wheels=4;
+		
+		void display() {
+			System.out.println("FOUR_W "+this.speed +" "+this.distance+" "+this.No_Of_Wheels);
+			System.out.println("parent class variable "+super.speed);
+			System.out.println("parent class variable "+super.distance);
+		}
+		
+		
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("Four wheeler is running");
+		
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stu
+		System.out.println("Four wheeler is stopped");
+		
+	}
+		
+	}
+
+class EIGHT_W extends Vehicle {
+		
+		int speed=50;
+		long distance=123l;
+		int No_Of_Wheels=8;
+		
+		void display() {
+			System.out.println("EIGHT_W "+this.speed +" "+this.distance+" "+this.No_Of_Wheels);
+			System.out.println("parent class variable "+super.speed);
+			System.out.println("parent class variable "+super.distance);
+		} 
+		
+		
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("Three wheeler is running");
+		
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stu
+		System.out.println("Three wheeler is stopped");
+		
+	}
+		
+	}
+ 
+
+public class Oops {
+	public static void main(String[] args) {
+		TWO_W two=new TWO_W();
+		two.display();
+		two.run();
+		two.stop();
+		two.fuel(15);
+		two.fuel(14.6f,"Hyderabad");
+		two.fuel('A', 5);
+		System.out.println();
+		THREE_W three=new THREE_W();
+		three.display();
+		three.run();
+		three.stop();
+		three.fuel(25);
+		three.fuel(20.0f,"Secunderabad");
+		three.fuel('B', 10);
+		System.out.println();
+		FOUR_W four=new FOUR_W();
+		four.display();
+		four.run();
+		four.stop();
+		four.fuel(70);
+		four.fuel(54.6f,"Warangal");
+		four.fuel('c', 25);
+		System.out.println();
+		EIGHT_W eight=new EIGHT_W();
+		eight.display();
+		eight.run();
+		eight.stop();
+		eight.fuel(500);
+		eight.fuel(125.67f,"Vishakaptnam");
+		eight.fuel('D', 120);
+		System.out.println();
+		
+		
+		
+		
+		
+	}
+		
+	}
+
+OUTPUT:
+
+
+TWO_W 70 1235 2
+60
+1000
+Two wheeler is running
+Two wheeler is stopped
+general petrol tank capacity 15
+next fuel station is Hyderabad,14.6 miles away
+token ID is A fuel needed to be filled is 5
+
+THREE_W 50 123 3
+parent class variable60
+parent class variable1000
+Three wheeler is running
+Three wheeler is stopped
+general petrol tank capacity 25
+next fuel station is Secunderabad,20.0 miles away
+token ID is B fuel needed to be filled is 10
+
+FOUR_W 100 2000 4
+parent class variable 60
+parent class variable 1000
+Four wheeler is running
+Four wheeler is stopped
+general petrol tank capacity 70
+next fuel station is Warangal,54.6 miles away
+token ID is c fuel needed to be filled is 25
+
+EIGHT_W 50 123 8
+parent class variable 60
+parent class variable 1000
+Three wheeler is running
+Three wheeler is stopped
+general petrol tank capacity 500
+next fuel station is Vishakaptnam,125.67 miles away
+token ID is D fuel needed to be filled is 120
+
+--------------------------------------------------------------------------------------
+
+ class Employee{
+    int salary=5000;
+    class PermEmployee{
+        String code="PE01";
+        float hike=0.45f;
+        float NewSalary=Employee.this.salary*1.45f;
+        void NewSalary(){
+            System.out.println(Employee.this.salary);
+            System.out.println(Employee.this.salary+(Employee.this.salary*hike));
+            }
+            void display(){
+                System.out.println(code+" "+hike+" "+ NewSalary);
+            }
+    }
+    class TempEmployee{
+        String code="TE02";
+        float hike=0.30f;
+        float NewSalary=Employee.this.salary*(1+hike);
+        void newSalary(){
+            System.out.println(Employee.this.salary);
+            System.out.println(Employee.this.salary+(Employee.this.salary*hike));
+        }
+        void Display(){
+            System.out.println(code+" "+hike+" "+ NewSalary);
+            }
+    }
+    void role(){
+        class ContractEmployee{
+            String code="CE03";
+            float hike=0.30f;
+            float NewSalary=Employee.this.salary*(1+hike);
+            void NewSalary(){
+                System.out.println(Employee.this.salary);
+                
+            }
+            void display(){
+                System.out.println(code+" "+hike+" "+NewSalary);
+            }
+            
+            
+        }
+        ContractEmployee ce = new ContractEmployee();
+        ce.NewSalary();
+        ce.display();
+    }
+    
+
+}
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Employee ee=new Employee();
+	    Employee.PermEmployee pe= ee.new PermEmployee();
+	    pe.NewSalary();
+	    pe.display();
+	    System.out.println();
+	    Employee.TempEmployee te=ee.new TempEmployee();
+	    te.newSalary();
+	    te.Display();
+	    System.out.println();
+	    ee.role();
+	 
+	    
+		
+	}
+}
+
+
+OUTPUT:
+
+5000
+7250.0
+PE01 0.45 7250.0
+
+5000
+6500.0
+TE02 0.3 6500.0
+
+5000
+CE03 0.3 6500.0
+--------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+class SalaryException extends Exception{
+    public  SalaryException(String s){
+        super(s);
+    }
+    
+}
+    
+    
+ class SalaryTestException{
+    static void CHECK (int salary) throws SalaryException{
+        if (salary<2100){
+            throw new SalaryException("work hard");
+        }
+        else if (salary>=2100 && salary<5000){
+            throw new SalaryException("somehow good");
+        }
+        else {
+            throw new SalaryException ("good");
+        }
+    }
+ }
+
+
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Enter your salary");
+	    int salary=sc.nextInt();
+		SalaryTestException obj = new SalaryTestException();
+		try {
+		    obj.CHECK(salary);
+		    
+		}
+		catch(SalaryException e){
+		    System.out.println(e.getMessage());
+		    System.out.println("Thankyou");
+		}
+	}
+}
+
+OUTPUT:
+
+4500
+somehow good
+Thankyou
+--------------------------------------------------------------------------------------------------
+class Customer{
+int amount=10000;
+ synchronized void withdraw(int amount){
+System.out.println("going to withdraw...");
+ if(this.amount<amount)
+ {
+ System.out.println("Less balance; waiting for deposit...");
+try{
+wait();
+ }
+ catch(Exception e){
+     
+ }
+     
+ }
+ this.amount-=amount;
+System.out.println("withdraw completed...the lefft over amount is"+ this.amount);
+ }
+ synchronized void deposit(int amount){
+ System.out.println("going to deposit...");
+this.amount+=amount;
+ System.out.println("deposit completed... " + this.amount);
+ notify(); //unlocking of thread
+ }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Customer customer = new Customer();
+	    new Thread(){
+	        public void run(){
+	            customer.withdraw(5000);
+	        }
+	        
+	    }.start();
+	    new Thread(){
+	        public void run(){
+	            customer.withdraw(4000);
+	        }
+	        
+	    }.start();
+	        
+	    
+	    
+		
+	}
+}
+
+
+OUTPUT:
+
+going to withdraw...
+withdraw completed...the lefft over amount is5000
+going to withdraw...
+withdraw completed...the lefft over amount is1000
+--------------------------------------------------------------------------------------------
+
+class Factorial{
+
+ synchronized void f(int number){
+     int facto=1;
+System.out.println("Factorial starts for "+number);
+
+ for(int fact=1;fact<=number;fact++)
+ {
+    facto=facto*fact;
+try{
+
+ }
+ catch(Exception e){
+     
+ }
+     
+ }
+ 
+ 
+System.out.println(facto);
+
+
+} synchronized void add(int num1, int num2){
+     int s=0;
+System.out.println("Addition starts for "+ num1+" "+num2);
+    s=num1+num2;
+ 
+try{
+
+ }
+ catch(Exception e){
+     
+ }
+     
+ System.out.println(s);
+}
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    Factorial factorial = new Factorial();
+	    new Thread(){
+	        public void run(){
+	            factorial.f(5);
+	        }
+	        
+	    }.start();
+	    
+	     new Thread(){
+	        public void run(){
+	            factorial.add(5,12);
+	        }
+	        
+	    }.start();
+	    
+	 }
+}
+
+
+OUTPUT:
+
+Factorial starts for 5
+120
+Addition starts for 5 12
+17
+-----------------------------------------------------------------------------
+
